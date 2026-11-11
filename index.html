@@ -5,7 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>理容館ジャガー｜沖縄市のメンズバーバー｜スキンフェード・濡れパン・スペインカール</title>
   <meta name="description" content="沖縄市東のメンズ専門バーバー「理容館ジャガー」。スキンフェード、濡れパン、スペインカール、ツイスパ、ハイトーンカラーに対応。2週間以内のメンテナンスカット¥2,500で、いつでも清潔・オシャレ・カッコイイをキープ。当日予約OK、駐車場4台。">
-  <meta name="theme-color" content="#111111">
+  <meta name="theme-color" content="#FFD400">
+  <link rel="icon" href="images/favicon.ico" sizes="any">
+  <link rel="icon" href="images/favicon-512.png" type="image/png">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
   <!-- 公開URLが決まったら canonical / og:url / og:image を絶対URLに差し替える -->
   <link rel="canonical" href="https://example.com/">
 
@@ -37,11 +40,18 @@
     "telephone": "+81-98-961-0118",
     "address": {
       "@type": "PostalAddress",
+      "postalCode": "904-2154",
       "streetAddress": "東2-15-8 コーポラス平良101",
       "addressLocality": "沖縄市",
       "addressRegion": "沖縄県",
       "addressCountry": "JP"
     },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 26.343315,
+      "longitude": 127.8234721
+    },
+    "hasMap": "https://www.google.com/maps/place/%E7%90%86%E5%AE%B9%E9%A4%A8%E3%82%B8%E3%83%A3%E3%82%AC%E3%83%BC/@26.343315,127.8234721,17z/data=!3m1!4b1!4m6!3m5!1s0x34e50d005de26659:0xaf6c6814281e00d9!8m2!3d26.343315!4d127.8234721!16s%2Fg%2F11r_xvmm5q",
     "openingHoursSpecification": [
       {
         "@type": "OpeningHoursSpecification",
@@ -70,9 +80,15 @@
 <header class="header" id="top">
   <div class="header__inner">
     <a href="#top" class="logo" aria-label="理容館ジャガー トップへ">
-      <span class="logo__en">JAGUAR</span>
-      <span class="logo__ja">理容館ジャガー</span>
-      <span class="logo__spots" aria-hidden="true"><i></i><i></i><i></i></span>
+      <picture class="logo__mark">
+        <source srcset="images/logo.webp" type="image/webp">
+        <img src="images/logo.png" alt="" width="480" height="188">
+      </picture>
+      <span class="logo__ja">理容館</span>
+      <picture class="logo__word">
+        <source srcset="images/logo-text.webp" type="image/webp">
+        <img src="images/logo-text.png" alt="" width="640" height="165">
+      </picture>
     </a>
     <nav class="nav" id="nav" aria-label="メインメニュー">
       <ul class="nav__list">
@@ -99,8 +115,11 @@
 <!-- ============ FIRST VIEW ============ -->
 <section class="fv">
   <div class="fv__media" aria-hidden="true">
-    <!-- 差し替え：images/hero.svg → 実写真（縦長推奨） -->
-    <img src="images/hero.svg" alt="" width="1200" height="1500">
+    <!-- ヒーロー：アメトラ風イラスト（被写体は左、右側は文字用の余白） -->
+    <picture>
+      <source srcset="images/hero.webp" type="image/webp">
+      <img src="images/hero.jpg" alt="" width="1672" height="941" fetchpriority="high">
+    </picture>
   </div>
   <div class="fv__body">
     <p class="fv__en">KEEP<br>FRESH.</p>
@@ -139,8 +158,21 @@
       <p>見た目はストリート、中身は気を使わない地元の理容館。初めてでも、お子さま連れでも、人見知りでも大丈夫。セットの仕方やケアのことも、なんでも聞いてください。</p>
     </div>
     <div class="about__media fade-in">
-      <!-- 差し替え：images/about.svg → 店内写真 -->
-      <img src="images/about.svg" alt="理容館ジャガーの店内（写真差し替え予定）" width="900" height="1100" loading="lazy">
+      <!-- 店内・店外の写真スライダー（3秒ごとに切り替え）。写真を足すときは slider__slide と dot を1組ずつ追加 -->
+      <div class="slider" data-interval="3000" role="region" aria-roledescription="carousel" aria-label="店内・店外の写真">
+        <div class="slider__track">
+          <figure class="slider__slide is-active" aria-roledescription="slide" aria-label="1 / 2">
+            <img src="images/shop-inside.webp" alt="理容館ジャガーの店内。黒いバーバーチェアと鏡が並ぶ" width="1200" height="900" loading="lazy">
+          </figure>
+          <figure class="slider__slide" aria-roledescription="slide" aria-label="2 / 2" aria-hidden="true">
+            <img src="images/shop-outside.webp" alt="理容館ジャガーの外観。緑の扉と看板" width="1200" height="900" loading="lazy">
+          </figure>
+        </div>
+        <div class="slider__dots">
+          <button type="button" class="slider__dot is-active" aria-label="店内の写真を表示" aria-current="true"></button>
+          <button type="button" class="slider__dot" aria-label="店外の写真を表示"></button>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -178,38 +210,38 @@
     <p class="section__en">STYLE</p>
     <h2 class="section__title">360°、どこから見ても<br class="sp-only">カッコよく。</h2>
     <p class="section__note">価格は目安です（税込）。詳しくは料金表・Hot Pepperをご確認ください。</p>
-    <!-- 写真は images/style-*.svg を実写真に差し替え（縦長 3:4 推奨） -->
+    <!-- スタイルはイラスト（images/style-*.webp）。実写真が用意できたら差し替え（縦長 3:4） -->
     <ul class="style__grid">
       <li class="style-card fade-in">
-        <figure><img src="images/style-skinfade.svg" alt="スキンフェードのスタイル（写真差し替え予定）" width="600" height="800" loading="lazy"></figure>
+        <figure><img src="images/style-skinfade.webp" alt="スキンフェードのスタイルのイラスト" width="720" height="960" loading="lazy"></figure>
         <div class="style-card__body"><h3>スキンフェード</h3><p class="style-card__price">カット ¥4,500〜</p></div>
       </li>
       <li class="style-card fade-in">
-        <figure><img src="images/style-fade.svg" alt="フェードのスタイル（写真差し替え予定）" width="600" height="800" loading="lazy"></figure>
+        <figure><img src="images/style-fade.webp" alt="フェードのスタイルのイラスト" width="720" height="960" loading="lazy"></figure>
         <div class="style-card__body"><h3>フェード</h3><p class="style-card__price">カット ¥4,500〜</p></div>
       </li>
       <li class="style-card fade-in">
-        <figure><img src="images/style-nurepan.svg" alt="濡れパンのスタイル（写真差し替え予定）" width="600" height="800" loading="lazy"></figure>
+        <figure><img src="images/style-nurepan.webp" alt="濡れパンのスタイルのイラスト" width="720" height="960" loading="lazy"></figure>
         <div class="style-card__body"><h3>濡れパン</h3><p class="style-card__price">¥10,000 → ¥9,000</p></div>
       </li>
       <li class="style-card fade-in">
-        <figure><img src="images/style-spaincurl.svg" alt="スペインカールのスタイル（写真差し替え予定）" width="600" height="800" loading="lazy"></figure>
+        <figure><img src="images/style-spaincurl.webp" alt="スペインカールのスタイルのイラスト" width="720" height="960" loading="lazy"></figure>
         <div class="style-card__body"><h3>スペインカール</h3><p class="style-card__price">カット＋パーマ ¥11,000〜</p></div>
       </li>
       <li class="style-card fade-in">
-        <figure><img src="images/style-twispa.svg" alt="ツイスパのスタイル（写真差し替え予定）" width="600" height="800" loading="lazy"></figure>
+        <figure><img src="images/style-twispa.webp" alt="ツイスパのスタイルのイラスト" width="720" height="960" loading="lazy"></figure>
         <div class="style-card__body"><h3>ツイスパ</h3><p class="style-card__price">カット＋パーマ ¥11,000〜</p></div>
       </li>
       <li class="style-card fade-in">
-        <figure><img src="images/style-namimaki.svg" alt="波巻きパーマのスタイル（写真差し替え予定）" width="600" height="800" loading="lazy"></figure>
+        <figure><img src="images/style-namimaki.webp" alt="波巻きパーマのスタイルのイラスト" width="720" height="960" loading="lazy"></figure>
         <div class="style-card__body"><h3>波巻きパーマ</h3><p class="style-card__price">カット＋パーマ ¥9,000〜</p></div>
       </li>
       <li class="style-card fade-in">
-        <figure><img src="images/style-hightone.svg" alt="ハイトーンカラーのスタイル（写真差し替え予定）" width="600" height="800" loading="lazy"></figure>
+        <figure><img src="images/style-hightone.webp" alt="ハイトーンカラーのスタイルのイラスト" width="720" height="960" loading="lazy"></figure>
         <div class="style-card__body"><h3>ハイトーンカラー</h3><p class="style-card__price">要相談</p></div>
       </li>
       <li class="style-card fade-in">
-        <figure><img src="images/style-kids.svg" alt="キッズ・学生カットのスタイル（写真差し替え予定）" width="600" height="800" loading="lazy"></figure>
+        <figure><img src="images/style-kids.webp" alt="キッズ・学生カットのスタイルのイラスト" width="720" height="960" loading="lazy"></figure>
         <div class="style-card__body"><h3>キッズ・学割カット</h3><p class="style-card__price">学割U24 ¥3,500</p></div>
       </li>
     </ul>
@@ -288,7 +320,7 @@
   <div class="container">
     <p class="section__en">STAFF</p>
     <h2 class="section__title">スタッフ紹介</h2>
-    <!-- 写真は images/staff-*.svg を実写真に差し替え（正方形推奨） -->
+    <!-- スタッフは似顔絵イラスト（images/staff-*.webp）。staff-1（普久原）は写真待ちで仮画像のまま -->
     <ul class="staff__grid">
       <li class="staff-card fade-in">
         <figure><img src="images/staff-1.svg" alt="普久原 健太（写真差し替え予定）" width="600" height="600" loading="lazy"></figure>
@@ -300,7 +332,7 @@
         </div>
       </li>
       <li class="staff-card fade-in">
-        <figure><img src="images/staff-2.svg" alt="新谷 勇人（写真差し替え予定）" width="600" height="600" loading="lazy"></figure>
+        <figure><img src="images/staff-2.webp" alt="新谷 勇人の似顔絵イラスト" width="640" height="640" loading="lazy"></figure>
         <div class="staff-card__body">
           <p class="staff-card__career">歴8年</p>
           <h3>新谷 勇人</h3>
@@ -309,7 +341,7 @@
         </div>
       </li>
       <li class="staff-card fade-in">
-        <figure><img src="images/staff-3.svg" alt="比嘉 優之介（写真差し替え予定）" width="600" height="600" loading="lazy"></figure>
+        <figure><img src="images/staff-3.webp" alt="比嘉 優之介の似顔絵イラスト" width="640" height="640" loading="lazy"></figure>
         <div class="staff-card__body">
           <p class="staff-card__career">歴4年</p>
           <h3>比嘉 優之介</h3>
@@ -318,7 +350,7 @@
         </div>
       </li>
       <li class="staff-card fade-in">
-        <figure><img src="images/staff-4.svg" alt="佐渡山 安人（写真差し替え予定）" width="600" height="600" loading="lazy"></figure>
+        <figure><img src="images/staff-4.webp" alt="佐渡山 安人の似顔絵イラスト" width="640" height="640" loading="lazy"></figure>
         <div class="staff-card__body">
           <p class="staff-card__career">歴1年</p>
           <h3>佐渡山 安人</h3>
@@ -327,7 +359,7 @@
         </div>
       </li>
       <li class="staff-card fade-in">
-        <figure><img src="images/staff-5.svg" alt="仲真 怜音（写真差し替え予定）" width="600" height="600" loading="lazy"></figure>
+        <figure><img src="images/staff-5.webp" alt="仲真 怜音の似顔絵イラスト" width="640" height="640" loading="lazy"></figure>
         <div class="staff-card__body">
           <p class="staff-card__career">歴1年</p>
           <h3>仲真 怜音</h3>
@@ -403,7 +435,7 @@
       <table class="info-table fade-in">
         <tbody>
           <tr><th>店名</th><td>理容館 ジャガー</td></tr>
-          <tr><th>住所</th><td>沖縄県沖縄市東2-15-8 コーポラス平良101</td></tr>
+          <tr><th>住所</th><td>〒904-2154<br>沖縄県沖縄市東2-15-8 コーポラス平良101</td></tr>
           <tr><th>目印</th><td>宮里エニタイムフィットネスの斜め向かい</td></tr>
           <tr><th>営業時間</th><td>平日 9:30〜19:00<br>土日祝 9:00〜18:30</td></tr>
           <tr><th>定休日</th><td>月曜日</td></tr>
@@ -413,10 +445,12 @@
           <tr><th>支払い</th><td>各種カード / PayPay / QUICPay / QRコード</td></tr>
         </tbody>
       </table>
-      <div class="map fade-in">
-        <!-- Googleマップ埋め込み：下のiframeのsrcに埋め込みURLを入れて、コメントを外す -->
-        <!-- <iframe src="" width="600" height="450" style="border:0;" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="理容館ジャガーの地図"></iframe> -->
-        <div class="map__placeholder">MAP<br><small>Googleマップ埋め込み予定</small></div>
+      <div class="map-wrap fade-in">
+        <!-- Googleマップ埋め込み（APIキー不要の埋め込み形式。ピンは店舗の座標 26.343315, 127.8234721） -->
+        <div class="map">
+          <iframe src="https://maps.google.com/maps?q=26.343315,127.8234721&amp;z=17&amp;hl=ja&amp;output=embed" width="600" height="450" style="border:0;" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="理容館ジャガーの地図"></iframe>
+        </div>
+        <a class="map__link" href="https://www.google.com/maps/place/%E7%90%86%E5%AE%B9%E9%A4%A8%E3%82%B8%E3%83%A3%E3%82%AC%E3%83%BC/@26.343315,127.8234721,17z/data=!3m1!4b1!4m6!3m5!1s0x34e50d005de26659:0xaf6c6814281e00d9!8m2!3d26.343315!4d127.8234721!16s%2Fg%2F11r_xvmm5q" target="_blank" rel="noopener">Googleマップで開く →</a>
       </div>
     </div>
   </div>
